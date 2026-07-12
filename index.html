@@ -68,7 +68,7 @@
             text-align: center;
             margin-top: auto;
             margin-bottom: auto;
-            padding: 20px 0;
+            padding: 10px 0;
         }
 
         h1 {
@@ -81,14 +81,14 @@
         .subtitle {
             font-size: 14px;
             color: var(--text-muted);
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
 
         .mode-select-box {
             background: var(--bg);
             padding: 16px;
             border-radius: var(--radius);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             border: 1px solid var(--border);
         }
 
@@ -110,17 +110,12 @@
             background: var(--card-bg);
             border: 2px solid var(--border);
             border-radius: var(--radius-sm);
-            padding: 14px;
+            padding: 12px;
             text-align: left;
             cursor: pointer;
             transition: var(--transition);
             font-size: 15px;
             font-weight: 600;
-            position: relative;
-        }
-
-        .mode-btn:hover {
-            border-color: var(--primary);
         }
 
         .mode-btn.selected {
@@ -136,6 +131,12 @@
             margin-top: 4px;
         }
 
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
         .start-btn {
             background: var(--primary);
             color: white;
@@ -149,279 +150,123 @@
             box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
             width: 100%;
         }
+        .start-btn:active { transform: scale(0.98); }
 
-        .start-btn:active {
-            transform: scale(0.98);
-        }
-
-        /* ゲーム画面 */
-        .game-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .stats-item {
-            font-size: 14px;
-            font-weight: bold;
-            background: var(--bg);
-            padding: 6px 12px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-        }
-
-        .score-val { color: var(--primary); }
-        .combo-val { color: var(--secondary); font-size: 16px; }
-
-        .timer-container {
-            width: 100%;
-            height: 8px;
-            background: var(--border);
-            border-radius: 4px;
-            margin-bottom: 24px;
-            overflow: hidden;
-        }
-
-        .timer-bar {
-            height: 100%;
-            width: 100%;
-            background: var(--secondary);
-            border-radius: 4px;
-            transition: width 0.1s linear, background-color 0.3s ease;
-        }
-
-        .question-box {
-            text-align: center;
-            padding: 30px 10px;
-            background: var(--primary-light);
-            border-radius: var(--radius);
-            margin-bottom: 20px;
-            min-height: 120px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 1px dashed var(--primary);
-        }
-
-        .question-label {
-            font-size: 12px;
-            color: var(--primary);
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-        }
-
-        .question-text {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--text);
-        }
-
-        .input-display-container {
-            margin-bottom: 20px;
-        }
-
-        .input-display {
-            width: 100%;
-            min-height: 54px;
-            border: 2px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 10px;
-            font-size: 22px;
-            text-align: center;
-            font-weight: bold;
-            background: var(--bg);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--text);
-        }
-
-        .input-display:focus-within {
-            border-color: var(--primary);
-        }
-
-        /* 標準キーボード用隠し・表示インプット */
-        .native-input {
-            width: 100%;
-            height: 50px;
-            border: 2px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 10px;
-            font-size: 18px;
-            text-align: center;
-            font-weight: bold;
-            outline: none;
-            transition: var(--transition);
-        }
-        .native-input:focus {
-            border-color: var(--primary);
-            background: #fff;
-        }
-
-        /* カスタムキーボード */
-        .keyboard {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            margin-top: auto;
-            padding-top: 10px;
-        }
-
-        .keyboard.active {
-            display: flex;
-        }
-
-        .keyboard-row {
-            display: flex;
-            justify-content: center;
-            gap: 4px;
-            width: 100%;
-        }
-
-        .key {
-            flex: 1;
-            height: 44px;
-            background: #ffffff;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 0 #ccc;
-            transition: background 0.05s;
-            user-select: none;
-            color: #333;
-        }
-
-        .key:active {
-            background: #e0e0e0;
-            transform: translateY(2px);
-            box-shadow: none;
-        }
-
-        .key.font-sub { font-size: 15px; background: #f0f4f8; }
-        .key.font-sup { font-size: 15px; background: #f0f4f8; }
-
-        .backspace-key {
-            background: #d1d5db;
-            flex: 1.5;
-        }
-
-        .spacer {
-            flex: 0.5;
-        }
-
-        .submit-container {
-            margin-top: 12px;
-            width: 100%;
-        }
-
-        .submit-btn {
-            width: 100%;
+        .learn-btn {
             background: var(--secondary);
             color: white;
             border: none;
-            border-radius: var(--radius-sm);
+            border-radius: var(--radius);
             padding: 14px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 4px 0 #27ae60;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+            width: 100%;
         }
-        .submit-btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 #27ae60;
-        }
+        .learn-btn:active { transform: scale(0.98); }
 
-        /* 結果画面 */
-        .result-container {
+        /* 学習モード（単語帳）画面 */
+        .learn-header {
             text-align: center;
-            margin-top: auto;
-            margin-bottom: auto;
+            margin-bottom: 16px;
         }
-
-        .rank-box {
-            margin: 20px 0;
-            padding: 20px;
-            background: var(--primary-light);
-            border-radius: var(--radius);
-            border: 2px solid var(--primary);
-        }
-
-        .rank-label {
-            font-size: 14px;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        .rank-title {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--text);
-            margin-top: 6px;
-        }
-
-        .result-stats {
+        .learn-header h2 { color: var(--primary); font-size: 22px; }
+        .learn-header p { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+        
+        .learn-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 30px;
+            gap: 10px;
+            overflow-y: auto;
+            flex-grow: 1;
+            margin-bottom: 16px;
+            padding-right: 4px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
+        .learn-grid::-webkit-scrollbar { display: none; }
 
-        .r-stat-card {
+        .flashcard {
             background: var(--bg);
-            padding: 14px;
+            border: 2px solid var(--border);
             border-radius: var(--radius-sm);
-            border: 1px solid var(--border);
+            padding: 16px 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 80px;
         }
-
-        .r-stat-label {
-            font-size: 12px;
-            color: var(--text-muted);
+        .flashcard:active { transform: scale(0.95); }
+        .flashcard.revealed {
+            background: var(--primary-light);
+            border-color: var(--primary);
         }
+        .fc-front { font-size: 14px; font-weight: bold; color: var(--text); }
+        .fc-back { font-size: 22px; font-weight: bold; color: var(--primary); display: none; }
+        
+        .flashcard.revealed .fc-front { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+        .flashcard.revealed .fc-back { display: block; }
 
-        .r-stat-val {
-            font-size: 20px;
+        .back-btn {
+            background: var(--text-muted);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            padding: 14px;
+            font-size: 16px;
             font-weight: bold;
-            margin-top: 4px;
+            cursor: pointer;
+            width: 100%;
         }
 
-        /* アニメーション用クラス */
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-6px); }
-            40%, 80% { transform: translateX(6px); }
-        }
+        /* ゲーム画面・リザルト画面 */
+        .game-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .stats-item { font-size: 14px; font-weight: bold; background: var(--bg); padding: 6px 12px; border-radius: 20px; border: 1px solid var(--border); }
+        .score-val { color: var(--primary); }
+        .combo-val { color: var(--secondary); font-size: 16px; }
+        .timer-container { width: 100%; height: 8px; background: var(--border); border-radius: 4px; margin-bottom: 24px; overflow: hidden; }
+        .timer-bar { height: 100%; width: 100%; background: var(--secondary); border-radius: 4px; transition: width 0.1s linear, background-color 0.3s ease; }
+        .question-box { text-align: center; padding: 30px 10px; background: var(--primary-light); border-radius: var(--radius); margin-bottom: 20px; min-height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px dashed var(--primary); }
+        .question-label { font-size: 12px; color: var(--primary); font-weight: bold; text-transform: uppercase; margin-bottom: 6px; }
+        .question-text { font-size: 28px; font-weight: 700; color: var(--text); }
+        
+        .input-display-container { margin-bottom: 20px; }
+        .input-display { width: 100%; min-height: 54px; border: 2px solid var(--border); border-radius: var(--radius-sm); padding: 10px; font-size: 22px; text-align: center; font-weight: bold; background: var(--bg); display: flex; justify-content: center; align-items: center; color: var(--text); }
+        .native-input { width: 100%; height: 50px; border: 2px solid var(--border); border-radius: var(--radius-sm); padding: 10px; font-size: 18px; text-align: center; font-weight: bold; outline: none; transition: var(--transition); }
+        .native-input:focus { border-color: var(--primary); background: #fff; }
 
-        .shake {
-            animation: shake 0.3s ease-in-out;
-        }
+        .keyboard { display: none; flex-direction: column; gap: 6px; margin-top: auto; padding-top: 10px; }
+        .keyboard.active { display: flex; }
+        .keyboard-row { display: flex; justify-content: center; gap: 4px; width: 100%; }
+        .key { flex: 1; height: 44px; background: #ffffff; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 0 #ccc; color: #333; user-select: none;}
+        .key:active { background: #e0e0e0; transform: translateY(2px); box-shadow: none; }
+        .key.font-sub, .key.font-sup { font-size: 15px; background: #f0f4f8; }
+        .backspace-key { background: #d1d5db; flex: 1.5; }
+        .spacer { flex: 0.5; }
 
-        .flash-correct {
-            background-color: rgba(46, 204, 113, 0.2) !important;
-            transition: none;
-        }
+        .submit-container { margin-top: 12px; width: 100%; }
+        .submit-btn { width: 100%; background: var(--secondary); color: white; border: none; border-radius: var(--radius-sm); padding: 14px; font-size: 18px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 0 #27ae60; }
+        .submit-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #27ae60; }
 
-        .flash-wrong {
-            background-color: rgba(255, 107, 107, 0.2) !important;
-            transition: none;
-        }
+        .result-container { text-align: center; margin-top: auto; margin-bottom: auto; }
+        .rank-box { margin: 20px 0; padding: 20px; background: var(--primary-light); border-radius: var(--radius); border: 2px solid var(--primary); }
+        .rank-label { font-size: 14px; color: var(--primary); font-weight: bold; }
+        .rank-title { font-size: 26px; font-weight: 800; color: var(--text); margin-top: 6px; }
+        .result-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+        .r-stat-card { background: var(--bg); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border); }
+        .r-stat-label { font-size: 12px; color: var(--text-muted); }
+        .r-stat-val { font-size: 20px; font-weight: bold; margin-top: 4px; }
 
-        /* モバイルフレンドリー微調整 */
-        @media (max-height: 650px) {
-            h1 { font-size: 22px; margin-bottom: 4px; }
-            .subtitle { margin-bottom: 20px; }
-            .question-box { padding: 15px 10px; min-height: 90px; margin-bottom: 12px; }
-            .question-text { font-size: 22px; }
-            .input-display { min-height: 44px; font-size: 18px; padding: 6px; margin-bottom: 10px; }
-            .key { height: 38px; font-size: 14px; }
-        }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+        .shake { animation: shake 0.3s ease-in-out; }
+        .flash-correct { background-color: rgba(46, 204, 113, 0.2) !important; transition: none; }
+        .flash-wrong { background-color: rgba(255, 107, 107, 0.2) !important; transition: none; }
     </style>
 </head>
 <body>
@@ -434,25 +279,40 @@
             <p class="subtitle">目指せ限界突破！完全マスターへの道</p>
             
             <div class="mode-select-box">
-                <div class="mode-title">モードを選択してください</div>
+                <div class="mode-title">出題モードを選択</div>
                 <div class="mode-options">
                     <button class="mode-btn selected" data-mode="A">
-                        名称 ➔ 化学式マスター
-                        <div class="mode-desc">「硫酸イオン」を見て「SO₄²⁻」を専用キーボードで入力</div>
+                        名称 ➔ 化学式入力
+                        <div class="mode-desc">「硫酸イオン」を見て「SO₄²⁻」をキーボード入力</div>
                     </button>
                     <button class="mode-btn" data-mode="B">
-                        化学式 ➔ 名称マスター
-                        <div class="mode-desc">「SO₄²⁻」を見て名前をフリック/タイピングで入力</div>
+                        化学式 ➔ 名称入力
+                        <div class="mode-desc">「SO₄²⁻」を見て名前をフリック入力</div>
                     </button>
                     <button class="mode-btn" data-mode="C">
                         ミックス・サバイバル
-                        <div class="mode-desc">両方の出題がランダムに混ざる超上級編</div>
+                        <div class="mode-desc">両方がランダムに出現するテスト本番用</div>
                     </button>
                 </div>
             </div>
             
-            <button class="start-btn" id="start-btn">ゲームスタート！ (60秒)</button>
+            <div class="action-buttons">
+                <button class="start-btn" id="start-btn">ゲームスタート！ (60秒)</button>
+                <button class="learn-btn" id="learn-btn">📖 まずは学習モード（単語帳）</button>
+            </div>
         </div>
+    </div>
+
+    <div id="learn-screen" class="screen">
+        <div class="learn-header">
+            <h2>イオン単語帳</h2>
+            <p>タップで化学式と名前を切り替えられます</p>
+        </div>
+        
+        <div class="learn-grid" id="learn-grid">
+            </div>
+
+        <button class="back-btn" id="back-to-title-btn">タイトルに戻る</button>
     </div>
 
     <div id="game-screen" class="screen">
@@ -539,7 +399,6 @@
     <div id="result-screen" class="screen">
         <div class="result-container">
             <h1>TIME UP!</h1>
-            <p class="subtitle">ゲーム終了。あなたの成果をチェック！</p>
             
             <div class="rank-box">
                 <div class="rank-label">あなたの称号</div>
@@ -572,7 +431,7 @@
 </div>
 
 <script>
-    // 40種類のイオンデータ定義
+    // イオンデータ
     const ionData = [
         { name: "水素イオン", kana: "すいそいおん", formula: "H⁺" },
         { name: "リチウムイオン", kana: "りちうむいおん", formula: "Li⁺" },
@@ -616,26 +475,26 @@
         { name: "シュウ酸イオン", kana: "しゅうさんいおん", formula: "C₂O₄²⁻" }
     ];
 
-    // ゲーム状態変数
-    let currentMode = "A"; // A:名称→式, B:式→名称, C:ミックス
+    // 変数
+    let currentMode = "A";
     let selectedIons = [];
     let currentQuestionIndex = 0;
-    let currentQuestionType = "formula"; // formula:化学式を当てる, name:名称を当てる
-    let score = 0;
-    let combo = 0;
-    let maxCombo = 0;
-    let correctCount = 0;
-    let totalAnsweredCount = 0;
+    let currentQuestionType = "formula";
+    let score = 0, combo = 0, maxCombo = 0, correctCount = 0, totalAnsweredCount = 0;
     let timeLeft = 60;
     let timerInterval = null;
     let currentCustomInput = "";
 
-    // DOM要素
-    const container = document.getElementById("game-container");
+    // DOM取得
+    const screens = document.querySelectorAll(".screen");
     const titleScreen = document.getElementById("title-screen");
+    const learnScreen = document.getElementById("learn-screen");
     const gameScreen = document.getElementById("game-screen");
     const resultScreen = document.getElementById("result-screen");
+    
     const startBtn = document.getElementById("start-btn");
+    const learnBtn = document.getElementById("learn-btn");
+    const backToTitleBtn = document.getElementById("back-to-title-btn");
     const retryBtn = document.getElementById("retry-btn");
     const modeBtns = document.querySelectorAll(".mode-btn");
     
@@ -648,16 +507,46 @@
     const customDisplayContainer = document.getElementById("custom-display-container");
     const inputDisplay = document.getElementById("input-display");
     const customKeyboard = document.getElementById("custom-keyboard");
-    
     const nativeDisplayContainer = document.getElementById("native-display-container");
     const nativeInput = document.getElementById("native-input");
     const nativeSubmitContainer = document.getElementById("native-submit-container");
-    
     const customSubmitBtn = document.getElementById("custom-submit-btn");
     const nativeSubmitBtn = document.getElementById("native-submit-btn");
     const backspaceBtn = document.getElementById("backspace-btn");
 
-    // モード選択処理
+    function switchScreen(targetScreen) {
+        screens.forEach(s => s.classList.remove("active"));
+        targetScreen.classList.add("active");
+    }
+
+    // 学習モード処理
+    learnBtn.addEventListener("click", () => {
+        switchScreen(learnScreen);
+        renderLearnGrid();
+    });
+
+    backToTitleBtn.addEventListener("click", () => switchScreen(titleScreen));
+
+    function renderLearnGrid() {
+        const grid = document.getElementById("learn-grid");
+        grid.innerHTML = "";
+        
+        ionData.forEach(ion => {
+            const card = document.createElement("div");
+            card.className = "flashcard";
+            card.innerHTML = `
+                <div class="fc-front">${ion.name}</div>
+                <div class="fc-back">${ion.formula}</div>
+            `;
+            // タップで裏表切り替え
+            card.addEventListener("click", () => {
+                card.classList.toggle("revealed");
+            });
+            grid.appendChild(card);
+        });
+    }
+
+    // モード選択
     modeBtns.forEach(btn => {
         btn.addEventListener("click", () => {
             modeBtns.forEach(b => b.classList.remove("selected"));
@@ -666,18 +555,9 @@
         });
     });
 
-    // ゲーム開始
+    // ゲームロジック
     startBtn.addEventListener("click", startGame);
-    retryBtn.addEventListener("click", () => {
-        switchScreen(titleScreen);
-    });
-
-    function switchScreen(screen) {
-        titleScreen.classList.remove("active");
-        gameScreen.classList.remove("active");
-        resultScreen.classList.remove("active");
-        screen.classList.add("active");
-    }
+    retryBtn.addEventListener("click", () => switchScreen(titleScreen));
 
     function shuffleArray(array) {
         const arr = [...array];
@@ -689,11 +569,7 @@
     }
 
     function startGame() {
-        score = 0;
-        combo = 0;
-        maxCombo = 0;
-        correctCount = 0;
-        totalAnsweredCount = 0;
+        score = combo = maxCombo = correctCount = totalAnsweredCount = 0;
         timeLeft = 60;
         currentCustomInput = "";
         
@@ -702,84 +578,54 @@
         timerBar.style.width = "100%";
         timerBar.style.backgroundColor = "var(--secondary)";
 
-        // イオンリストをシャッフル
         selectedIons = shuffleArray(ionData);
         currentQuestionIndex = 0;
 
         switchScreen(gameScreen);
         nextQuestion();
 
-        // タイマースタート
         clearInterval(timerInterval);
         timerInterval = setInterval(() => {
             timeLeft -= 0.1;
-            if (timeLeft <= 0) {
-                timeLeft = 0;
-                endGame();
-            }
-            
-            // タイマーバー更新
+            if (timeLeft <= 0) { timeLeft = 0; endGame(); }
             const percent = (timeLeft / 60) * 100;
             timerBar.style.width = `${percent}%`;
-            
-            if (timeLeft < 15) {
-                timerBar.style.backgroundColor = "var(--accent)";
-            } else if (timeLeft < 30) {
-                timerBar.style.backgroundColor = "#f1c40f";
-            }
+            if (timeLeft < 15) timerBar.style.backgroundColor = "var(--accent)";
+            else if (timeLeft < 30) timerBar.style.backgroundColor = "#f1c40f";
         }, 100);
     }
 
     function nextQuestion() {
         if (currentQuestionIndex >= selectedIons.length) {
-            // 一周したら再度シャッフルして補給
             selectedIons = shuffleArray(ionData);
             currentQuestionIndex = 0;
         }
 
         const currentIon = selectedIons[currentQuestionIndex];
-        
-        // 出題タイプの決定
-        if (currentMode === "A") {
-            currentQuestionType = "formula";
-        } else if (currentMode === "B") {
-            currentQuestionType = "name";
-        } else {
-            // ミックスモード
-            currentQuestionType = Math.random() > 0.5 ? "formula" : "name";
-        }
+        currentQuestionType = currentMode === "C" ? (Math.random() > 0.5 ? "formula" : "name") : (currentMode === "A" ? "formula" : "name");
 
         currentCustomInput = "";
         inputDisplay.textContent = "";
         nativeInput.value = "";
 
         if (currentQuestionType === "formula") {
-            // 化学式を当てる問題（「名前」を画面に出す）
             questionLabel.textContent = "化学式を答えよ";
             questionText.textContent = currentIon.name;
-            
             customDisplayContainer.style.display = "flex";
             customKeyboard.classList.add("active");
-            
             nativeDisplayContainer.style.display = "none";
             nativeSubmitContainer.style.display = "none";
         } else {
-            // 名称を当てる問題（「化学式」を画面に出す）
             questionLabel.textContent = "イオンの名前を答えよ";
             questionText.textContent = currentIon.formula;
-            
             customDisplayContainer.style.display = "none";
             customKeyboard.classList.remove("active");
-            
             nativeDisplayContainer.style.display = "block";
             nativeSubmitContainer.style.display = "block";
-            
-            // モバイル端末等で自動フォーカス
             setTimeout(() => nativeInput.focus(), 50);
         }
     }
 
-    // カスタムキーボード入力イベント
     const keys = document.querySelectorAll(".key:not(.backspace-key):not(.submit-key)");
     keys.forEach(key => {
         key.addEventListener("click", (e) => {
@@ -788,61 +634,35 @@
         });
     });
 
-    // バックスペース
     backspaceBtn.addEventListener("click", () => {
         if (currentCustomInput.length > 0) {
-            // 末尾が上付き・下付きの複数文字(例: ²⁺)かどうか判定
             const lastTwo = currentCustomInput.slice(-2);
-            if (["²⁺", "³⁺", "²⁻", "³⁻"].includes(lastTwo)) {
-                currentCustomInput = currentCustomInput.slice(0, -2);
-            } else {
-                currentCustomInput = currentCustomInput.slice(0, -1);
-            }
+            if (["²⁺", "³⁺", "²⁻", "³⁻"].includes(lastTwo)) currentCustomInput = currentCustomInput.slice(0, -2);
+            else currentCustomInput = currentCustomInput.slice(0, -1);
             inputDisplay.textContent = currentCustomInput;
         }
     });
 
-    // 決定ボタン処理
     customSubmitBtn.addEventListener("click", checkAnswer);
     nativeSubmitBtn.addEventListener("click", checkAnswer);
-    
-    // ネイティブ入力のEnterキー
-    nativeInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-            checkAnswer();
-        }
-    });
+    nativeInput.addEventListener("keydown", (e) => { if (e.key === "Enter") checkAnswer(); });
 
     function checkAnswer() {
         const currentIon = selectedIons[currentQuestionIndex];
-        let isCorrect = false;
-        let userAnswer = "";
+        let isCorrect = false, userAnswer = "";
 
         if (currentQuestionType === "formula") {
             userAnswer = currentCustomInput.trim().toLowerCase();
-            const correctAnswer = currentIon.formula.trim().toLowerCase();
-            isCorrect = (userAnswer === correctAnswer);
+            isCorrect = (userAnswer === currentIon.formula.trim().toLowerCase());
         } else {
-            userAnswer = nativeInput.value.trim();
-            // カタカナ・ひらがな、漢字をある程度ゆるく一致判定
-            const correctName = currentIon.name;
-            const correctKana = currentIon.kana;
+            userAnswer = nativeInput.value.trim().toLowerCase().replace(/[\(\)（）\-ー]/g, "");
+            const cleanName = currentIon.name.toLowerCase().replace(/[\(\)（）\-ー]/g, "");
+            const cleanKana = currentIon.kana.replace(/[\(\)（）\-ー]/g, "");
+            isCorrect = (userAnswer === cleanName || userAnswer === cleanKana);
             
-            // 標準的な正規化（大文字小文字、全角半角の統一は最小限に）
-            const cleanUser = userAnswer.toLowerCase().replace(/[\(\)（）\-ー]/g, "");
-            const cleanName = correctName.toLowerCase().replace(/[\(\)（）\-ー]/g, "");
-            const cleanKana = correctKana.replace(/[\(\)（）\-ー]/g, "");
-            
-            isCorrect = (cleanUser === cleanName || cleanUser === cleanKana);
-            
-            // 別名のチェック
             if (!isCorrect && currentIon.alt) {
-                for (let altName of currentIon.alt) {
-                    const cleanAlt = altName.toLowerCase().replace(/[\(\)（）\-ー]/g, "");
-                    if (cleanUser === cleanAlt) {
-                        isCorrect = true;
-                        break;
-                    }
+                for (let alt of currentIon.alt) {
+                    if (userAnswer === alt.toLowerCase().replace(/[\(\)（）\-ー]/g, "")) { isCorrect = true; break; }
                 }
             }
         }
@@ -850,35 +670,20 @@
         totalAnsweredCount++;
 
         if (isCorrect) {
-            // 正解
-            correctCount++;
-            combo++;
+            correctCount++; combo++;
             if (combo > maxCombo) maxCombo = combo;
-            
-            // スコア計算 (基本100 + コンボボーナス)
-            const pts = 100 + Math.min(combo * 10, 200);
-            score += pts;
-            
+            score += 100 + Math.min(combo * 10, 200);
             scoreDisplay.textContent = score;
             comboDisplay.textContent = combo;
-
-            // 演出
             flashScreen("flash-correct");
-            
             currentQuestionIndex++;
             nextQuestion();
         } else {
-            // 不正解
-            combo = 0;
-            comboDisplay.textContent = combo;
-            
-            // 時間ペナルティ
+            combo = 0; comboDisplay.textContent = combo;
             timeLeft = Math.max(0, timeLeft - 3);
-            
-            // 演出
             flashScreen("flash-wrong");
-            container.classList.add("shake");
-            setTimeout(() => container.classList.remove("shake"), 300);
+            document.getElementById("game-container").classList.add("shake");
+            setTimeout(() => document.getElementById("game-container").classList.remove("shake"), 300);
         }
     }
 
@@ -887,23 +692,19 @@
         setTimeout(() => document.body.classList.remove(className), 200);
     }
 
-    function getRankTitle(score) {
-        if (score >= 4000) return "👑 イオンの絶対神 (神域)";
-        if (score >= 2500) return "🧙‍♂️ イオンマスター (プロ)";
-        if (score >= 1200) return "⚔️ 熟練の錬金術師 (上級)";
-        if (score >= 500)  return "🛡️ 見習い魔術師 (中級)";
-        return "🌱 イオンの卵 (初級)";
-    }
-
     function endGame() {
         clearInterval(timerInterval);
-        
-        // リザルトデータ反映
         document.getElementById("res-score").textContent = score;
         document.getElementById("res-combo").textContent = maxCombo;
         document.getElementById("res-correct").textContent = correctCount;
         document.getElementById("res-total").textContent = totalAnsweredCount;
-        document.getElementById("rank-title").textContent = getRankTitle(score);
+        
+        let rank = "🌱 イオンの卵 (初級)";
+        if (score >= 4000) rank = "👑 イオンの絶対神 (神域)";
+        else if (score >= 2500) rank = "🧙‍♂️ イオンマスター (プロ)";
+        else if (score >= 1200) rank = "⚔️ 熟練の錬金術師 (上級)";
+        else if (score >= 500) rank = "🛡️ 見習い魔術師 (中級)";
+        document.getElementById("rank-title").textContent = rank;
 
         switchScreen(resultScreen);
     }
