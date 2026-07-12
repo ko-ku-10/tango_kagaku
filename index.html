@@ -232,9 +232,33 @@
         .combo-val { color: var(--secondary); font-size: 16px; }
         .timer-container { width: 100%; height: 8px; background: var(--border); border-radius: 4px; margin-bottom: 24px; overflow: hidden; }
         .timer-bar { height: 100%; width: 100%; background: var(--secondary); border-radius: 4px; transition: width 0.1s linear, background-color 0.3s ease; }
-        .question-box { text-align: center; padding: 30px 10px; background: var(--primary-light); border-radius: var(--radius); margin-bottom: 20px; min-height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px dashed var(--primary); }
+        .question-box { text-align: center; padding: 20px 10px; background: var(--primary-light); border-radius: var(--radius); margin-bottom: 20px; min-height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px dashed var(--primary); position: relative;}
         .question-label { font-size: 12px; color: var(--primary); font-weight: bold; text-transform: uppercase; margin-bottom: 6px; }
-        .question-text { font-size: 28px; font-weight: 700; color: var(--text); }
+        .question-text { font-size: 28px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+        
+        /* ヒント関連のスタイル */
+        .hint-btn {
+            background: #f39c12;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 3px 0 #d68910;
+            transition: var(--transition);
+        }
+        .hint-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 #d68910; }
+        .hint-btn:disabled { background: #bdc3c7; box-shadow: 0 3px 0 #95a5a6; cursor: not-allowed; }
+        .hint-text {
+            color: #d35400;
+            font-size: 16px;
+            font-weight: bold;
+            min-height: 24px;
+            margin-top: 5px;
+            display: none; /* 初期状態は非表示 */
+        }
         
         .input-display-container { margin-bottom: 20px; }
         .input-display { width: 100%; min-height: 54px; border: 2px solid var(--border); border-radius: var(--radius-sm); padding: 10px; font-size: 22px; text-align: center; font-weight: bold; background: var(--bg); display: flex; justify-content: center; align-items: center; color: var(--text); }
@@ -328,6 +352,9 @@
         <div class="question-box" id="question-box">
             <div class="question-label" id="question-label">QUESTION</div>
             <div class="question-text" id="question-text">---</div>
+            
+            <button class="hint-btn" id="hint-btn">💡 ヒント (-2秒)</button>
+            <div id="hint-text" class="hint-text">---</div>
         </div>
 
         <div class="input-display-container" id="custom-display-container">
@@ -504,6 +531,10 @@
     const questionLabel = document.getElementById("question-label");
     const questionText = document.getElementById("question-text");
     
+    // ヒントDOM
+    const hintBtn = document.getElementById("hint-btn");
+    const hintText = document.getElementById("hint-text");
+    
     const customDisplayContainer = document.getElementById("custom-display-container");
     const inputDisplay = document.getElementById("input-display");
     const customKeyboard = document.getElementById("custom-keyboard");
@@ -595,6 +626,27 @@
         }, 100);
     }
 
+    // ヒント機能
+    hintBtn.addEventListener("click", () => {
+        if (hintBtn.disabled) return;
+        
+        // 時間を2秒マイナス
+        timeLeft = Math.max(0, timeLeft - 2);
+        
+        const currentIon = selectedIons[currentQuestionIndex];
+        
+        // 最初の1文字を表示
+        if (currentQuestionType === "formula") {
+            hintText.textContent = currentIon.formula.charAt(0) + " ...";
+        } else {
+            hintText.textContent = currentIon.kana.charAt(0) + " ...";
+        }
+        
+        hintBtn.style.display = "none";
+        hintText.style.display = "block";
+        hintBtn.disabled = true;
+    });
+
     function nextQuestion() {
         if (currentQuestionIndex >= selectedIons.length) {
             selectedIons = shuffleArray(ionData);
@@ -607,6 +659,11 @@
         currentCustomInput = "";
         inputDisplay.textContent = "";
         nativeInput.value = "";
+        
+        // ヒント状態のリセット
+        hintBtn.style.display = "inline-block";
+        hintText.style.display = "none";
+        hintBtn.disabled = false;
 
         if (currentQuestionType === "formula") {
             questionLabel.textContent = "化学式を答えよ";
