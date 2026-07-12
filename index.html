@@ -52,220 +52,79 @@
         }
 
         /* スクリーン管理 */
-        .screen {
-            display: none;
-            flex-direction: column;
-            flex-grow: 1;
-            height: 100%;
-        }
-
-        .screen.active {
-            display: flex;
-        }
+        .screen { display: none; flex-direction: column; flex-grow: 1; height: 100%; }
+        .screen.active { display: flex; }
 
         /* タイトル画面 */
-        .title-container {
-            text-align: center;
-            margin-top: auto;
-            margin-bottom: auto;
-            padding: 10px 0;
-        }
+        .title-container { text-align: center; margin-top: auto; margin-bottom: auto; padding: 10px 0; }
+        h1 { font-size: 28px; color: var(--primary); margin-bottom: 8px; font-weight: 700; }
+        .subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
+        
+        /* 定着度ステータス（タイトル） */
+        .mastery-status-box { background: var(--bg); padding: 12px; border-radius: var(--radius-sm); border: 1px dashed var(--primary); margin-bottom: 20px; font-size: 13px; color: var(--text); }
+        .mastery-status-box strong { color: #f39c12; font-size: 16px; }
 
-        h1 {
-            font-size: 28px;
-            color: var(--primary);
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .subtitle {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-
-        .mode-select-box {
-            background: var(--bg);
-            padding: 16px;
-            border-radius: var(--radius);
-            margin-bottom: 20px;
-            border: 1px solid var(--border);
-        }
-
-        .mode-title {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            text-align: left;
-            color: var(--text);
-        }
-
-        .mode-options {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .mode-btn {
-            background: var(--card-bg);
-            border: 2px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 12px;
-            text-align: left;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .mode-btn.selected {
-            border-color: var(--primary);
-            background-color: var(--primary-light);
-            color: var(--primary);
-        }
-
-        .mode-desc {
-            font-size: 12px;
-            color: var(--text-muted);
-            font-weight: normal;
-            margin-top: 4px;
-        }
-
-        .action-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .start-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: var(--radius);
-            padding: 16px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
-            width: 100%;
-        }
+        .mode-select-box { background: var(--bg); padding: 16px; border-radius: var(--radius); margin-bottom: 20px; border: 1px solid var(--border); }
+        .mode-title { font-size: 14px; font-weight: bold; margin-bottom: 12px; text-align: left; color: var(--text); }
+        .mode-options { display: flex; flex-direction: column; gap: 10px; }
+        .mode-btn { background: var(--card-bg); border: 2px solid var(--border); border-radius: var(--radius-sm); padding: 12px; text-align: left; cursor: pointer; transition: var(--transition); font-size: 15px; font-weight: 600; }
+        .mode-btn.selected { border-color: var(--primary); background-color: var(--primary-light); color: var(--primary); }
+        .mode-desc { font-size: 12px; color: var(--text-muted); font-weight: normal; margin-top: 4px; }
+        
+        .action-buttons { display: flex; flex-direction: column; gap: 12px; }
+        .start-btn { background: var(--primary); color: white; border: none; border-radius: var(--radius); padding: 16px; font-size: 18px; font-weight: bold; cursor: pointer; transition: var(--transition); box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3); width: 100%; }
         .start-btn:active { transform: scale(0.98); }
-
-        .learn-btn {
-            background: var(--secondary);
-            color: white;
-            border: none;
-            border-radius: var(--radius);
-            padding: 14px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
-            width: 100%;
-        }
+        .learn-btn { background: var(--secondary); color: white; border: none; border-radius: var(--radius); padding: 14px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3); width: 100%; }
         .learn-btn:active { transform: scale(0.98); }
 
-        /* 学習モード（単語帳）画面 */
-        .learn-header {
-            text-align: center;
-            margin-bottom: 16px;
-        }
+        /* 学習モード */
+        .learn-header { text-align: center; margin-bottom: 16px; }
         .learn-header h2 { color: var(--primary); font-size: 22px; }
         .learn-header p { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-        
-        .learn-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            overflow-y: auto;
-            flex-grow: 1;
-            margin-bottom: 16px;
-            padding-right: 4px;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        .learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; overflow-y: auto; flex-grow: 1; margin-bottom: 16px; padding-right: 4px; -ms-overflow-style: none; scrollbar-width: none; }
         .learn-grid::-webkit-scrollbar { display: none; }
-
-        .flashcard {
-            background: var(--bg);
-            border: 2px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 16px 8px;
-            text-align: center;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 80px;
-        }
+        .flashcard { background: var(--bg); border: 2px solid var(--border); border-radius: var(--radius-sm); padding: 14px 6px; text-align: center; cursor: pointer; transition: var(--transition); display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 85px; }
         .flashcard:active { transform: scale(0.95); }
-        .flashcard.revealed {
-            background: var(--primary-light);
-            border-color: var(--primary);
-        }
-        .fc-front { font-size: 14px; font-weight: bold; color: var(--text); }
-        .fc-back { font-size: 22px; font-weight: bold; color: var(--primary); display: none; }
-        
-        .flashcard.revealed .fc-front { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+        .flashcard.revealed { background: var(--primary-light); border-color: var(--primary); }
+        .fc-front { font-size: 13px; font-weight: bold; color: var(--text); }
+        .fc-stars { font-size: 12px; color: #f39c12; margin-top: 4px; letter-spacing: 2px; }
+        .fc-back { font-size: 20px; font-weight: bold; color: var(--primary); display: none; margin-top: 4px; }
+        .flashcard.revealed .fc-front { font-size: 11px; color: var(--text-muted); }
+        .flashcard.revealed .fc-stars { display: none; }
         .flashcard.revealed .fc-back { display: block; }
+        .back-btn { background: var(--text-muted); color: white; border: none; border-radius: var(--radius); padding: 14px; font-size: 16px; font-weight: bold; cursor: pointer; width: 100%; }
 
-        .back-btn {
-            background: var(--text-muted);
-            color: white;
-            border: none;
-            border-radius: var(--radius);
-            padding: 14px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        /* ゲーム画面・リザルト画面 */
+        /* ゲーム画面 */
         .game-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
         .stats-item { font-size: 14px; font-weight: bold; background: var(--bg); padding: 6px 12px; border-radius: 20px; border: 1px solid var(--border); }
         .score-val { color: var(--primary); }
         .combo-val { color: var(--secondary); font-size: 16px; }
-        .timer-container { width: 100%; height: 8px; background: var(--border); border-radius: 4px; margin-bottom: 24px; overflow: hidden; }
+        .timer-container { width: 100%; height: 8px; background: var(--border); border-radius: 4px; margin-bottom: 16px; overflow: hidden; }
         .timer-bar { height: 100%; width: 100%; background: var(--secondary); border-radius: 4px; transition: width 0.1s linear, background-color 0.3s ease; }
-        .question-box { text-align: center; padding: 20px 10px; background: var(--primary-light); border-radius: var(--radius); margin-bottom: 20px; min-height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px dashed var(--primary); position: relative;}
-        .question-label { font-size: 12px; color: var(--primary); font-weight: bold; text-transform: uppercase; margin-bottom: 6px; }
-        .question-text { font-size: 28px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
         
-        /* ヒント関連のスタイル */
-        .hint-btn {
-            background: #f39c12;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 6px 14px;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 3px 0 #d68910;
-            transition: var(--transition);
-        }
+        .question-box { text-align: center; padding: 20px 10px; background: var(--primary-light); border-radius: var(--radius); margin-bottom: 16px; min-height: 130px; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px dashed var(--primary); }
+        .question-label { font-size: 12px; color: var(--primary); font-weight: bold; margin-bottom: 6px; }
+        .q-stars { color: #f39c12; font-size: 14px; letter-spacing: 2px; }
+        .question-text { font-size: 26px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+        
+        /* ヒント＆強制復習テキスト */
+        .hint-btn { background: #f39c12; color: white; border: none; border-radius: 20px; padding: 6px 14px; font-size: 12px; font-weight: bold; cursor: pointer; box-shadow: 0 3px 0 #d68910; transition: var(--transition); }
         .hint-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 #d68910; }
         .hint-btn:disabled { background: #bdc3c7; box-shadow: 0 3px 0 #95a5a6; cursor: not-allowed; }
-        .hint-text {
-            color: #d35400;
-            font-size: 16px;
-            font-weight: bold;
-            min-height: 24px;
-            margin-top: 5px;
-            display: none; /* 初期状態は非表示 */
-        }
         
-        .input-display-container { margin-bottom: 20px; }
+        .hint-text { color: #d35400; font-size: 16px; font-weight: bold; margin-top: 5px; display: none; }
+        
+        /* 間違えた時の赤枠復習表示 */
+        .review-text { color: #c0392b; font-size: 14px; font-weight: bold; margin-top: 8px; padding: 10px; background: #fadbd8; border: 1px solid #e74c3c; border-radius: 8px; display: none; width: 95%; line-height: 1.4; }
+        .review-ans { font-size: 22px; color: #c0392b; display: block; margin: 4px 0; }
+
+        .input-display-container { margin-bottom: 16px; }
         .input-display { width: 100%; min-height: 54px; border: 2px solid var(--border); border-radius: var(--radius-sm); padding: 10px; font-size: 22px; text-align: center; font-weight: bold; background: var(--bg); display: flex; justify-content: center; align-items: center; color: var(--text); }
         .native-input { width: 100%; height: 50px; border: 2px solid var(--border); border-radius: var(--radius-sm); padding: 10px; font-size: 18px; text-align: center; font-weight: bold; outline: none; transition: var(--transition); }
         .native-input:focus { border-color: var(--primary); background: #fff; }
 
-        .keyboard { display: none; flex-direction: column; gap: 6px; margin-top: auto; padding-top: 10px; }
+        /* キーボード */
+        .keyboard { display: none; flex-direction: column; gap: 6px; margin-top: auto; padding-top: 5px; }
         .keyboard.active { display: flex; }
         .keyboard-row { display: flex; justify-content: center; gap: 4px; width: 100%; }
         .key { flex: 1; height: 44px; background: #ffffff; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 0 #ccc; color: #333; user-select: none;}
@@ -274,18 +133,19 @@
         .backspace-key { background: #d1d5db; flex: 1.5; }
         .spacer { flex: 0.5; }
 
-        .submit-container { margin-top: 12px; width: 100%; }
+        .submit-container { margin-top: 10px; width: 100%; }
         .submit-btn { width: 100%; background: var(--secondary); color: white; border: none; border-radius: var(--radius-sm); padding: 14px; font-size: 18px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 0 #27ae60; }
         .submit-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #27ae60; }
 
+        /* リザルト画面 */
         .result-container { text-align: center; margin-top: auto; margin-bottom: auto; }
         .rank-box { margin: 20px 0; padding: 20px; background: var(--primary-light); border-radius: var(--radius); border: 2px solid var(--primary); }
         .rank-label { font-size: 14px; color: var(--primary); font-weight: bold; }
         .rank-title { font-size: 26px; font-weight: 800; color: var(--text); margin-top: 6px; }
-        .result-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-        .r-stat-card { background: var(--bg); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border); }
-        .r-stat-label { font-size: 12px; color: var(--text-muted); }
-        .r-stat-val { font-size: 20px; font-weight: bold; margin-top: 4px; }
+        .result-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .r-stat-card { background: var(--bg); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border); }
+        .r-stat-label { font-size: 11px; color: var(--text-muted); }
+        .r-stat-val { font-size: 18px; font-weight: bold; margin-top: 4px; }
 
         @keyframes shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
         .shake { animation: shake 0.3s ease-in-out; }
@@ -300,29 +160,31 @@
     <div id="title-screen" class="screen active">
         <div class="title-container">
             <h1>イオン暗記<br>タイムアタック</h1>
-            <p class="subtitle">目指せ限界突破！完全マスターへの道</p>
+            <p class="subtitle">AI反復学習 ＆ 強制復習システム搭載</p>
+            
+            <div class="mastery-status-box">
+                現在の完璧なイオン： <strong id="title-mastery-count">0</strong> / 40 個<br>
+                <span style="font-size:11px; color:#7f8c8d;">（苦手な問題が優先的に出題されます）</span>
+            </div>
             
             <div class="mode-select-box">
                 <div class="mode-title">出題モードを選択</div>
                 <div class="mode-options">
                     <button class="mode-btn selected" data-mode="A">
                         名称 ➔ 化学式入力
-                        <div class="mode-desc">「硫酸イオン」を見て「SO₄²⁻」をキーボード入力</div>
                     </button>
                     <button class="mode-btn" data-mode="B">
                         化学式 ➔ 名称入力
-                        <div class="mode-desc">「SO₄²⁻」を見て名前をフリック入力</div>
                     </button>
                     <button class="mode-btn" data-mode="C">
                         ミックス・サバイバル
-                        <div class="mode-desc">両方がランダムに出現するテスト本番用</div>
                     </button>
                 </div>
             </div>
             
             <div class="action-buttons">
                 <button class="start-btn" id="start-btn">ゲームスタート！ (60秒)</button>
-                <button class="learn-btn" id="learn-btn">📖 まずは学習モード（単語帳）</button>
+                <button class="learn-btn" id="learn-btn">📖 学習モード（単語帳）</button>
             </div>
         </div>
     </div>
@@ -330,11 +192,10 @@
     <div id="learn-screen" class="screen">
         <div class="learn-header">
             <h2>イオン単語帳</h2>
-            <p>タップで化学式と名前を切り替えられます</p>
+            <p>タップで裏返し。星が少ないものを覚えよう！</p>
         </div>
         
-        <div class="learn-grid" id="learn-grid">
-            </div>
+        <div class="learn-grid" id="learn-grid"></div>
 
         <button class="back-btn" id="back-to-title-btn">タイトルに戻る</button>
     </div>
@@ -350,11 +211,11 @@
         </div>
 
         <div class="question-box" id="question-box">
-            <div class="question-label" id="question-label">QUESTION</div>
+            <div class="question-label" id="question-label">QUESTION <span class="q-stars" id="q-stars">☆☆☆</span></div>
             <div class="question-text" id="question-text">---</div>
             
             <button class="hint-btn" id="hint-btn">💡 ヒント (-2秒)</button>
-            <div id="hint-text" class="hint-text">---</div>
+            <div id="feedback-text" class="hint-text">---</div>
         </div>
 
         <div class="input-display-container" id="custom-display-container">
@@ -438,12 +299,12 @@
                     <div class="r-stat-val" id="res-score" style="color:var(--primary);">0</div>
                 </div>
                 <div class="r-stat-card">
-                    <div class="r-stat-label">最大コンボ</div>
-                    <div class="r-stat-val" id="res-combo" style="color:var(--secondary);">0</div>
+                    <div class="r-stat-label">マスター到達</div>
+                    <div class="r-stat-val" style="color:#f39c12;"><span id="res-mastered">0</span> / 40</div>
                 </div>
                 <div class="r-stat-card">
-                    <div class="r-stat-label">正解数</div>
-                    <div class="r-stat-val" id="res-correct">0</div>
+                    <div class="r-stat-label">最大コンボ</div>
+                    <div class="r-stat-val" id="res-combo">0</div>
                 </div>
                 <div class="r-stat-card">
                     <div class="r-stat-label">挑戦回数</div>
@@ -502,7 +363,68 @@
         { name: "シュウ酸イオン", kana: "しゅうさんいおん", formula: "C₂O₄²⁻" }
     ];
 
-    // 変数
+    // --- 定着度（Mastery）管理システム ---
+    // ローカルストレージから読み込み（なければ空）
+    let masteryData = JSON.parse(localStorage.getItem('ionMastery')) || {};
+    
+    // データ初期化 (0: 苦手/未学習, 1: まあまあ, 2: 惜しい, 3: 完璧)
+    ionData.forEach(ion => {
+        if (masteryData[ion.name] === undefined) {
+            masteryData[ion.name] = 0;
+        }
+    });
+
+    function saveMastery() {
+        localStorage.setItem('ionMastery', JSON.stringify(masteryData));
+        updateTitleMasteryCount();
+    }
+
+    function updateMasteryScore(ionName, change) {
+        masteryData[ionName] += change;
+        if (masteryData[ionName] > 3) masteryData[ionName] = 3;
+        if (masteryData[ionName] < 0) masteryData[ionName] = 0;
+        saveMastery();
+    }
+
+    function getStarsHtml(level) {
+        if (level === 3) return "★★★";
+        if (level === 2) return "★★☆";
+        if (level === 1) return "★☆☆";
+        return "☆☆☆";
+    }
+
+    function updateTitleMasteryCount() {
+        let perfectCount = Object.values(masteryData).filter(lvl => lvl === 3).length;
+        document.getElementById("title-mastery-count").textContent = perfectCount;
+    }
+    updateTitleMasteryCount();
+
+    // 定着度に基づく「重み付け抽選リスト」の作成
+    function generateWeightedList() {
+        let list = [];
+        ionData.forEach(ion => {
+            let level = masteryData[ion.name];
+            let weight = 1;
+            // 苦手なものほどリストにたくさん入れる（出やすくなる）
+            if (level === 0) weight = 4;
+            else if (level === 1) weight = 3;
+            else if (level === 2) weight = 2;
+            else if (level === 3) weight = 1; // 完璧なものも忘却防止で少し入れる
+            
+            for (let i = 0; i < weight; i++) {
+                list.push(ion);
+            }
+        });
+        
+        // シャッフル
+        for (let i = list.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [list[i], list[j]] = [list[j], list[i]];
+        }
+        return list;
+    }
+
+    // --- ゲーム状態変数 ---
     let currentMode = "A";
     let selectedIons = [];
     let currentQuestionIndex = 0;
@@ -511,6 +433,9 @@
     let timeLeft = 60;
     let timerInterval = null;
     let currentCustomInput = "";
+    
+    let isReviewMode = false; // 間違えたあとの「強制入力復習モード」フラグ
+    let usedHint = false;     // その問題でヒントを使ったか
 
     // DOM取得
     const screens = document.querySelectorAll(".screen");
@@ -529,11 +454,11 @@
     const comboDisplay = document.getElementById("combo-display");
     const timerBar = document.getElementById("timer-bar");
     const questionLabel = document.getElementById("question-label");
+    const qStars = document.getElementById("q-stars");
     const questionText = document.getElementById("question-text");
     
-    // ヒントDOM
     const hintBtn = document.getElementById("hint-btn");
-    const hintText = document.getElementById("hint-text");
+    const feedbackText = document.getElementById("feedback-text");
     
     const customDisplayContainer = document.getElementById("custom-display-container");
     const inputDisplay = document.getElementById("input-display");
@@ -555,24 +480,23 @@
         switchScreen(learnScreen);
         renderLearnGrid();
     });
-
-    backToTitleBtn.addEventListener("click", () => switchScreen(titleScreen));
+    backToTitleBtn.addEventListener("click", () => {
+        updateTitleMasteryCount();
+        switchScreen(titleScreen);
+    });
 
     function renderLearnGrid() {
         const grid = document.getElementById("learn-grid");
         grid.innerHTML = "";
-        
         ionData.forEach(ion => {
             const card = document.createElement("div");
             card.className = "flashcard";
             card.innerHTML = `
                 <div class="fc-front">${ion.name}</div>
+                <div class="fc-stars">${getStarsHtml(masteryData[ion.name])}</div>
                 <div class="fc-back">${ion.formula}</div>
             `;
-            // タップで裏表切り替え
-            card.addEventListener("click", () => {
-                card.classList.toggle("revealed");
-            });
+            card.addEventListener("click", () => card.classList.toggle("revealed"));
             grid.appendChild(card);
         });
     }
@@ -586,30 +510,25 @@
         });
     });
 
-    // ゲームロジック
+    // ゲーム開始
     startBtn.addEventListener("click", startGame);
-    retryBtn.addEventListener("click", () => switchScreen(titleScreen));
-
-    function shuffleArray(array) {
-        const arr = [...array];
-        for (let i = arr.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [arr[i], arr[j]] = [arr[j], arr[i]];
-        }
-        return arr;
-    }
+    retryBtn.addEventListener("click", () => {
+        updateTitleMasteryCount();
+        switchScreen(titleScreen);
+    });
 
     function startGame() {
         score = combo = maxCombo = correctCount = totalAnsweredCount = 0;
         timeLeft = 60;
         currentCustomInput = "";
+        isReviewMode = false;
         
         scoreDisplay.textContent = score;
         comboDisplay.textContent = combo;
         timerBar.style.width = "100%";
         timerBar.style.backgroundColor = "var(--secondary)";
 
-        selectedIons = shuffleArray(ionData);
+        selectedIons = generateWeightedList();
         currentQuestionIndex = 0;
 
         switchScreen(gameScreen);
@@ -626,54 +545,56 @@
         }, 100);
     }
 
-    // ヒント機能
+    // ヒントボタン
     hintBtn.addEventListener("click", () => {
-        if (hintBtn.disabled) return;
-        
-        // 時間を2秒マイナス
-        timeLeft = Math.max(0, timeLeft - 2);
+        if (hintBtn.disabled || isReviewMode) return;
+        timeLeft = Math.max(0, timeLeft - 2); // ペナルティ
+        usedHint = true;
         
         const currentIon = selectedIons[currentQuestionIndex];
+        let hintChar = currentQuestionType === "formula" ? currentIon.formula.charAt(0) : currentIon.kana.charAt(0);
         
-        // 最初の1文字を表示
-        if (currentQuestionType === "formula") {
-            hintText.textContent = currentIon.formula.charAt(0) + " ...";
-        } else {
-            hintText.textContent = currentIon.kana.charAt(0) + " ...";
-        }
+        feedbackText.className = "hint-text";
+        feedbackText.textContent = hintChar + " ...";
         
         hintBtn.style.display = "none";
-        hintText.style.display = "block";
+        feedbackText.style.display = "block";
         hintBtn.disabled = true;
     });
 
     function nextQuestion() {
         if (currentQuestionIndex >= selectedIons.length) {
-            selectedIons = shuffleArray(ionData);
+            selectedIons = generateWeightedList();
             currentQuestionIndex = 0;
         }
 
         const currentIon = selectedIons[currentQuestionIndex];
         currentQuestionType = currentMode === "C" ? (Math.random() > 0.5 ? "formula" : "name") : (currentMode === "A" ? "formula" : "name");
 
+        // 状態リセット
         currentCustomInput = "";
         inputDisplay.textContent = "";
         nativeInput.value = "";
+        isReviewMode = false;
+        usedHint = false;
         
-        // ヒント状態のリセット
+        // UIリセット
         hintBtn.style.display = "inline-block";
-        hintText.style.display = "none";
+        feedbackText.style.display = "none";
         hintBtn.disabled = false;
 
+        // 定着度（星）の表示更新
+        qStars.textContent = getStarsHtml(masteryData[currentIon.name]);
+
         if (currentQuestionType === "formula") {
-            questionLabel.textContent = "化学式を答えよ";
+            questionLabel.childNodes[0].textContent = "化学式を答えよ ";
             questionText.textContent = currentIon.name;
             customDisplayContainer.style.display = "flex";
             customKeyboard.classList.add("active");
             nativeDisplayContainer.style.display = "none";
             nativeSubmitContainer.style.display = "none";
         } else {
-            questionLabel.textContent = "イオンの名前を答えよ";
+            questionLabel.childNodes[0].textContent = "イオンの名前を答えよ ";
             questionText.textContent = currentIon.formula;
             customDisplayContainer.style.display = "none";
             customKeyboard.classList.remove("active");
@@ -683,6 +604,7 @@
         }
     }
 
+    // キーボード入力処理
     const keys = document.querySelectorAll(".key:not(.backspace-key):not(.submit-key)");
     keys.forEach(key => {
         key.addEventListener("click", (e) => {
@@ -704,10 +626,12 @@
     nativeSubmitBtn.addEventListener("click", checkAnswer);
     nativeInput.addEventListener("keydown", (e) => { if (e.key === "Enter") checkAnswer(); });
 
+    // ★ 判定＆定着度処理 ★
     function checkAnswer() {
         const currentIon = selectedIons[currentQuestionIndex];
         let isCorrect = false, userAnswer = "";
 
+        // 正誤判定
         if (currentQuestionType === "formula") {
             userAnswer = currentCustomInput.trim().toLowerCase();
             isCorrect = (userAnswer === currentIon.formula.trim().toLowerCase());
@@ -716,7 +640,6 @@
             const cleanName = currentIon.name.toLowerCase().replace(/[\(\)（）\-ー]/g, "");
             const cleanKana = currentIon.kana.replace(/[\(\)（）\-ー]/g, "");
             isCorrect = (userAnswer === cleanName || userAnswer === cleanKana);
-            
             if (!isCorrect && currentIon.alt) {
                 for (let alt of currentIon.alt) {
                     if (userAnswer === alt.toLowerCase().replace(/[\(\)（）\-ー]/g, "")) { isCorrect = true; break; }
@@ -724,23 +647,67 @@
             }
         }
 
-        totalAnsweredCount++;
-
         if (isCorrect) {
-            correctCount++; combo++;
-            if (combo > maxCombo) maxCombo = combo;
-            score += 100 + Math.min(combo * 10, 200);
-            scoreDisplay.textContent = score;
-            comboDisplay.textContent = combo;
-            flashScreen("flash-correct");
-            currentQuestionIndex++;
-            nextQuestion();
+            // 【正解した場合】
+            if (isReviewMode) {
+                // 復習モードでの正解（スコアや定着度は増えない、ただ次へ進む）
+                flashScreen("flash-correct");
+                currentQuestionIndex++;
+                nextQuestion();
+            } else {
+                // 一発正解（スコア＆定着度アップ）
+                totalAnsweredCount++;
+                correctCount++; 
+                combo++;
+                if (combo > maxCombo) maxCombo = combo;
+                score += 100 + Math.min(combo * 10, 200);
+                scoreDisplay.textContent = score;
+                comboDisplay.textContent = combo;
+                
+                // ヒントを使っていなければ定着度UP
+                if (!usedHint) updateMasteryScore(currentIon.name, 1);
+                
+                flashScreen("flash-correct");
+                currentQuestionIndex++;
+                nextQuestion();
+            }
         } else {
-            combo = 0; comboDisplay.textContent = combo;
-            timeLeft = Math.max(0, timeLeft - 3);
-            flashScreen("flash-wrong");
-            document.getElementById("game-container").classList.add("shake");
-            setTimeout(() => document.getElementById("game-container").classList.remove("shake"), 300);
+            // 【不正解の場合】
+            if (!isReviewMode) {
+                // 初回のミス（ペナルティ＆復習モード突入）
+                totalAnsweredCount++;
+                combo = 0; 
+                comboDisplay.textContent = combo;
+                timeLeft = Math.max(0, timeLeft - 3);
+                updateMasteryScore(currentIon.name, -1); // 定着度DOWN
+                
+                flashScreen("flash-wrong");
+                document.getElementById("game-container").classList.add("shake");
+                setTimeout(() => document.getElementById("game-container").classList.remove("shake"), 300);
+                
+                // 復習画面の展開
+                isReviewMode = true;
+                hintBtn.style.display = "none";
+                
+                let correctAns = currentQuestionType === "formula" ? currentIon.formula : currentIon.name;
+                feedbackText.className = "review-text";
+                feedbackText.innerHTML = `❌ 不正解<br><span class="review-ans">${correctAns}</span>もう一度入力して進んでください`;
+                feedbackText.style.display = "block";
+                
+                // 入力欄をリセットしてやり直させる
+                currentCustomInput = "";
+                inputDisplay.textContent = "";
+                nativeInput.value = "";
+                if(currentQuestionType === "name") setTimeout(() => nativeInput.focus(), 50);
+            } else {
+                // 復習モード中にもう一度間違えた（ペナルティなしで揺れるだけ）
+                flashScreen("flash-wrong");
+                document.getElementById("game-container").classList.add("shake");
+                setTimeout(() => document.getElementById("game-container").classList.remove("shake"), 300);
+                currentCustomInput = "";
+                inputDisplay.textContent = "";
+                nativeInput.value = "";
+            }
         }
     }
 
@@ -753,8 +720,10 @@
         clearInterval(timerInterval);
         document.getElementById("res-score").textContent = score;
         document.getElementById("res-combo").textContent = maxCombo;
-        document.getElementById("res-correct").textContent = correctCount;
         document.getElementById("res-total").textContent = totalAnsweredCount;
+        
+        let perfectCount = Object.values(masteryData).filter(lvl => lvl === 3).length;
+        document.getElementById("res-mastered").textContent = perfectCount;
         
         let rank = "🌱 イオンの卵 (初級)";
         if (score >= 4000) rank = "👑 イオンの絶対神 (神域)";
